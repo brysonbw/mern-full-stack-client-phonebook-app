@@ -3,7 +3,6 @@ import axios from 'axios'
 
 
 function EditContact({ contact }) {
-
     const [ name, setName ] = useState(contact.name)
     const [ number, setNumber ] = useState(contact.number)
     
@@ -18,8 +17,8 @@ function EditContact({ contact }) {
       .put(`https://phonebook-app-api.herokuapp.com/contacts/${contact.id}`, editContactObject)
       .then(response => {
         console.log(response)
+        window.location.reload(false);
     })
-    window.location = "/";
     }
 
     // cancel edit handle/function > for onClick -- 'x' and 'close' modal buttons

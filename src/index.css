@@ -15,3 +15,8 @@ input {
 h5 {
   margin: .5em auto;
 }
+
+
+.modal-body > input {
+    max-width: 100%;
+}

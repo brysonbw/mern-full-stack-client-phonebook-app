@@ -1,21 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-function AddContact() {
+function AddContact({contacts, setContacts}) {
     const [ name, setName ] = useState('')
     const [ number, setNumber ] = useState('')
 
-    // Accessing name input data
-  const handleNameChange = (event) => {
-    console.log(event.target.value)
-    setName(event.target.value)
-  }
-
- // Accessing number input data
-  const handleNumberChange = (event) => {
-    console.log(event.target.value)
-    setNumber(event.target.value)
-  }     
 
   // Creating an object for the new contact 
     const addContact = event => {
@@ -29,9 +18,10 @@ function AddContact() {
     axios
       .post('https://phonebook-app-api.herokuapp.com/contacts', contactObject)
       .then(response => {
-        console.log(response)
+        setContacts([...contacts, contactObject])
+        setName('')
+        setNumber('')
     })
-    window.location = "/";
   }
 
 
@@ -44,12 +34,12 @@ function AddContact() {
         <div>
           Name: <input placeholder="ex. john doe" required
           value={name} 
-          onChange={handleNameChange}/>
+          onChange={(e) => setName(e.target.value)}/>
                 </div>
                 <div>
           Number: <input placeholder="ex. (555)555-5555" required
           value={number} 
-          onChange={handleNumberChange} />
+          onChange={(e) => setNumber(e.target.value)} />
         </div>
         <div>
           <button class="btn btn-primary" type="submit">Add</button>
