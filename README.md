@@ -4,9 +4,11 @@ A Phonebook app that stores phone contacts: name and phone number
 
 Tech Stack:
 
-> Front-End/Client - React
-> Back-End/Server - Node/Express
-> Database - MySQL
+Front-End/Client - React
+
+Back-End/Server - Node/Express
+
+Database - MySQL
 
 Technologies, Frameworks, & Languages:
 
